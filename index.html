@@ -118,6 +118,31 @@
       color: #a1a1aa;
     }
 
+    .email-btn {
+      cursor: pointer;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #fafafa;
+      color: #09090b;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
     @media (max-width: 768px) {
       header {
         padding: 1.5rem;
@@ -163,7 +188,19 @@
 
   <footer>
     <span>&copy; HL Tech Solutions LLC</span>
-    <a href="mailto:hello@hltechsolutions.io">hello@hltechsolutions.io</a>
+    <a href="#" class="email-btn" onclick="copyEmail(event)">hello@hltechsolutions.io</a>
   </footer>
+
+  <div class="toast" id="toast">Copied to clipboard</div>
+
+  <script>
+    function copyEmail(e) {
+      e.preventDefault();
+      navigator.clipboard.writeText('hello@hltechsolutions.io');
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+  </script>
 </body>
 </html>
