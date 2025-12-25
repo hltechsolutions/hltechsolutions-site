@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HL Tech Solutions LLC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,12 +15,27 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      background: #0a0a0a;
+      font-family: 'Syne', sans-serif;
+      background: #09090b;
       color: #fafafa;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+
+    header {
+      padding: 2rem 3rem;
+    }
+
+    .logo {
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: #6366f1;
     }
 
     main {
@@ -25,92 +43,127 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      text-align: center;
+      padding: 2rem 3rem;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
     }
 
-    .logo {
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-
-    .logo span {
-      color: #3b82f6;
+    .hero {
+      margin-bottom: 5rem;
     }
 
     .tagline {
-      font-size: 1.125rem;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 400;
       color: #a1a1aa;
-      margin-bottom: 3rem;
+      line-height: 1.4;
+      max-width: 500px;
     }
 
-    .section {
-      margin-bottom: 3rem;
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #52525b;
+      margin-bottom: 1.5rem;
     }
 
-    .section-title {
-      font-size: 0.875rem;
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .app-card {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+      border-radius: 1rem;
+      border: 1px solid #27272a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .app-card:hover {
+      border-color: #3f3f46;
+      transform: translateY(-2px);
+    }
+
+    .app-card span {
+      font-size: 0.75rem;
+      color: #3f3f46;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: #71717a;
-      margin-bottom: 0.75rem;
     }
 
-    .section-content {
-      font-size: 1rem;
-      color: #d4d4d8;
-    }
-
-    .contact {
+    footer {
+      padding: 2rem 3rem;
       display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #18181b;
+      font-size: 0.75rem;
+      color: #52525b;
     }
 
-    .contact a {
-      color: #3b82f6;
+    footer a {
+      color: #71717a;
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .contact a:hover {
-      color: #60a5fa;
+    footer a:hover {
+      color: #a1a1aa;
     }
 
-    footer {
-      padding: 1.5rem;
-      text-align: center;
-      border-top: 1px solid #27272a;
-      font-size: 0.875rem;
-      color: #52525b;
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem;
+      }
+
+      main {
+        padding: 1.5rem;
+      }
+
+      .apps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      footer {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo"><span>HL</span> Tech Solutions</div>
+  </header>
+
   <main>
-    <h1 class="logo"><span>HL</span> Tech Solutions</h1>
-    <p class="tagline">We build mobile apps and digital products.</p>
-
-    <div class="section">
-      <h2 class="section-title">Apps</h2>
-      <p class="section-content">Coming soon</p>
+    <div class="hero">
+      <p class="tagline">We build mobile apps and digital products.</p>
     </div>
 
-    <div class="section">
-      <h2 class="section-title">Contact</h2>
-      <div class="contact">
-        <a href="mailto:admin@hltechsolutions.io">admin@hltechsolutions.io</a>
-        <a href="tel:+17074978153">+1 (707) 497-8153</a>
+    <section>
+      <h2 class="section-label">Apps</h2>
+      <div class="apps-grid">
+        <div class="app-card"><span>Soon</span></div>
+        <div class="app-card"><span>Soon</span></div>
+        <div class="app-card"><span>Soon</span></div>
+        <div class="app-card"><span>Soon</span></div>
       </div>
-    </div>
+    </section>
   </main>
 
   <footer>
-    &copy; HL Tech Solutions LLC
+    <span>&copy; HL Tech Solutions LLC</span>
+    <a href="mailto:admin@hltechsolutions.io">admin@hltechsolutions.io</a>
   </footer>
 </body>
 </html>
-
